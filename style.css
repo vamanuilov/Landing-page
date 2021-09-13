@@ -1,19 +1,18 @@
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./assets/fonts/Montserrat-Medium.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 * {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat';
+  --main-bg-color: #f8f3ff;
+  --brighter-black: #303030;
+  --purple: #8e43ed;
+  --bright-purple: #aa7ecd;
+  --white: #ffffff;
+  --black: #000000;
+  --pink: #f18bc3;
 }
 
 body {
-  background-color: #f8f3ff;
+  background-color: var(--main-bg-color);
 }
 
 .header {
@@ -24,13 +23,111 @@ body {
   padding-right: 144px;
   padding-left: 64px;
   height: 96px;
-  color: #8E43ED;
+  color: var(--purple);
 }
 
-.header__navbar__wrapper {
+.navbar {
   display: flex;
 }
 
-.header__navbar__wrapper div {
+.navbar div {
   padding: 0 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.user-card {
+  background-color: var(--white);
+  height: 800px;
+  display: flex;
+  align-items: center;
+  padding: 0 64px;
+  border-top-left-radius: 23%;
+  border-bottom-right-radius: 23%;
+  min-height: calc(100vh - 96px);
+}
+
+.user-avatar {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+}
+
+.user-avatar::after {
+  content: '';
+  width: 68.93px;
+  height: 68.93px;
+  z-index: 1;
+  border-radius: 16px;
+  background-color: var(--purple);
+  position: absolute;
+  transform: rotate(-111.94deg);
+  left: -45px;
+  bottom: 115px;
+}
+
+.user-avatar::before {
+  content: '';
+  width: 120.57px;
+  height: 120.57px;
+  z-index: 1;
+  border-radius: 24px;
+  background-color: var(--pink);
+  position: absolute;
+  transform: rotate(128.05deg);
+  left: -37px;
+  bottom: -31px;
+}
+
+.user-info {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 144px 176px 32px 32px;
+  height: 640px;
+}
+
+.user-name {
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 72px;
+  color: var(--brighter-black);
+}
+
+.user-additional-info {
+  display: flex;
+  padding: 24px 0 64px;
+}
+
+.user-additional-info p {
+  color: var(--brighter-black);
+  padding-right: 32px;
+}
+
+.user-additional-info p span {
+  font-weight: 800;
+  color: var(--bright-purple);
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.user-text-header {
+  font-weight: 800;
+  font-size: 27px;
+  line-height: 36px;
+  padding-bottom: 24px;
+}
+
+.user-text {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.user-text p {
+  padding-bottom: 20px;
 }
