@@ -12,7 +12,7 @@
   </head>
   <body>
     <header class="header">
-      <div><img src="/assets/logo.png" alt="Logo" /></div>
+      <div><img src="assets/logo.png" alt="Logo" /></div>
       <div class="navbar">
         <div>Jane Doe</div>
         <div>Tell us about yourself</div>
@@ -47,6 +47,74 @@
         </div>
       </div>
     </section>
+    <section>
+      <form class="form">
+          <div class="form-small-square right-side"></div>
+          <div class="form-middle-square right-side"></div>
+          <div class="form-large-square right-side"></div>
+          <div class="form-small-square left-side"></div>
+          <div class="form-middle-square left-side"></div>
+          <div class="form-large-square left-side"></div>
+        <div class="form-header">Tell us about yourself</div>
+        <div class="form-main-info">
+          <div>
+            <label for="form-username">Your name</label
+            ><input id="username" type="text" placeholder="Type your name..." />
+          </div>
+          <div>
+            <label for="form-user-gender"><div class="custom-select"></div>Your gender</label>
+              <select id="form-user-gender" placeholder="Gender" name="gender">
+                <option value="" hidden>Select...</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Non-binary">Non-binary</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-additional-info hidden">
+          <div><label for="form-country">Your country</label><input id="form-country" type="text" placeholder="Type your country..."/></div>
+          <div><label for="form-city">Your City</label><input id="form-city" type="text" placeholder="Type your City..."/></div>
+          <div><label for="form-date">Your date of birth</label><input id="form-date" type="text" placeholder="Type your date..."/></div>
+        </div>
+        <div class="document hidden">
+          <label class="custom-document-upload" for="document-upload"></label>
+          <input id="document-upload" accept="image/*" type="file" value=""/>
+          <div class="custom-upload-text">
+            Proof your identity with some documents
+            <div>Add document</div>
+          </div>
+          <div id="filePreview" class="preview hidden">
+            <img id="previewImg" src="assets/avatar.png" alt="preview image" />
+            <div class="img-info">
+              <div id="previewImgName"></div>
+              <div id="previewImgTypeAndSize"></div>
+            </div>
+            <div class="trash-can">
+              <input type="button" id="trashCan" />
+              <label for="trashCan">
+                <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.41797 3L3.78059 1H7.89034L8.25297 3" stroke="#8E43ED" stroke-width="1.33333" stroke-linejoin="round"/>
+                  <path d="M1 3H10.67" stroke="#8E43ED" stroke-width="1.33333" stroke-linecap="round"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0657 3L9.15918 12.3333H2.51105L1.60449 3H10.0657Z" stroke="#8E43ED" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button id="userInfoSubmit" type="submit">Send info</button>
+          <div id="completeBlockWrap" class="hidden">
+            <div class="complete-icon-wrap ">
+                <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.3394 1.07544L5.15999 9.52827L1.66016 5.90563" stroke="#3DD73A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="complete-text ">Completed</div>
+          </div>
+        </div>
+      </form>
+    </section>
   </body>
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
 </html>
