@@ -18,22 +18,48 @@
   --white: #ffffff;
   --black: #000000;
   --pink: #f18bc3;
+  --gray: #9f9f9f;
+}
+
+input:active,
+input:focus,
+select:active,
+select:focus,
+button[type='submit']:active,
+button[type='submit']:focus {
+  outline: none;
+  -moz-box-shadow: 1px 1px 7px 2px var(--purple-200);
+  -webkit-box-shadow: 1px 1px 7px 2px var(--purple-200);
+  box-shadow: 1px 1px 7px 2px var(--purple-200);
+}
+
+input::placeholder {
+  color: var(--gray);
+  opacity: 1;
+}
+
+input:-ms-input-placeholder {
+  color: var(--gray);
+}
+
+input::-ms-input-placeholder {
+  color: var(--gray);
 }
 
 body {
   background-color: var(--white-200);
 }
 
-.error {
-  border-color: red;
-}
-
 .hidden {
   opacity: 0;
 }
 
+.error {
+  border-color: red; /* TODO: fix style */
+}
+
 .highlight {
-  background-color: var(--purple-600);
+  background-color: var(--purple-600); /* TODO: fix style */
 }
 
 .header {
@@ -232,7 +258,7 @@ body {
 
 .left-side {
   z-index: -1;
-  background-color: #F2E9FF;
+  background-color: #f2e9ff;
 }
 
 .form-header {
@@ -257,6 +283,10 @@ body {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
+}
+
+.form select {
+  color: var(--gray);
 }
 
 .form select option {
@@ -297,21 +327,21 @@ body {
   display: flex;
 }
 
-.document {
+.file-upload-block {
   height: 168px;
   padding-top: 56px;
   position: relative;
 }
 
-.document.hidden {
+.file-upload-block.hidden {
   pointer-events: none;
 }
 
-#document-upload {
+#file-upload {
   display: none;
 }
 
-.custom-document-upload {
+.custom-file-upload {
   display: inline-block;
   border: 2px dotted var(--purple-200);
   border-radius: 12px;
@@ -444,4 +474,8 @@ body {
   font-size: 16px;
   line-height: 20px;
   color: var(--black-400);
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  display: none;
 }

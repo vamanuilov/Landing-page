@@ -1,9 +1,11 @@
 const completeBlock = document.getElementById('completeBlockWrap')
+const userFormSubmitBtn = document.getElementById('userInfoSubmit')
 
-document.getElementById('userInfoSubmit').addEventListener('click', (e) => {
-  e.preventDefault()
-  e.stopPropagation()
-  if (completeBlock.classList.contains('hidden')) {
-    completeBlock.classList.remove('hidden')
-  }
-})
+  userFormSubmitBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (completeBlock.classList.contains('hidden')) {
+      completeBlock.classList.remove('hidden')
+      userFormSubmitBtn.disabled = true
+    }
+  })
