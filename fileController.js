@@ -1,6 +1,6 @@
-const FILE_SIZE_LIMIT = 5
+export const FILE_SIZE_LIMIT = 5
 
-const documentLabel = document.querySelector('.custom-document-upload')
+const customFileInput = document.querySelector('.custom-file-upload')
 
 const removeFile = () => {
   document.getElementById('filePreview').classList.add('hidden')
@@ -29,29 +29,29 @@ const handleFile = (event) => {
 }
 
 const init = () => {
-  document.getElementById('document-upload').addEventListener('change', handleFile)
+  document.getElementById('file-upload').addEventListener('change', handleFile)
   document.getElementById('trashCan').addEventListener('click', removeFile)
   ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
-    documentLabel.addEventListener(eventName, (event) => {
+    customFileInput.addEventListener(eventName, (event) => {
       event.preventDefault()
       event.stopPropagation()
     })
   })
 
-  documentLabel?.addEventListener('dragenter', () => {
-    documentLabel.classList.add('highlight')
+  customFileInput?.addEventListener('dragenter', () => {
+    customFileInput.classList.add('highlight')
   })
 
-  documentLabel?.addEventListener('dragleave', () => {
-    documentLabel.classList.remove('highlight')
+  customFileInput?.addEventListener('dragleave', () => {
+    customFileInput.classList.remove('highlight')
   })
 
-  documentLabel?.addEventListener('drop', (data) => {
+  customFileInput?.addEventListener('drop', (data) => {
     let [file] = data.dataTransfer.files
-    documentLabel.classList.remove('highlight')
+    customFileInput.classList.remove('highlight')
     console.log('file', file)
     if (!file.type.includes('image') || file.size > FILE_SIZE_LIMIT * 1024 * 1024) {
-      documentLabel.classList.add('error')
+      customFileInput.classList.add('error')
     } else {
       previewFile(file)
     }

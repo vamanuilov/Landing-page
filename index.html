@@ -48,38 +48,52 @@
       </div>
     </section>
     <section>
-      <form class="form">
-          <div class="form-small-square right-side"></div>
-          <div class="form-middle-square right-side"></div>
-          <div class="form-large-square right-side"></div>
-          <div class="form-small-square left-side"></div>
-          <div class="form-middle-square left-side"></div>
-          <div class="form-large-square left-side"></div>
+      <form class="form" action="/" method="get">
+          <div>
+            <div class="form-small-square right-side"></div>
+            <div class="form-middle-square right-side"></div>
+            <div class="form-large-square right-side"></div>
+            <div class="form-small-square left-side"></div>
+            <div class="form-middle-square left-side"></div>
+            <div class="form-large-square left-side"></div>
+          </div>
         <div class="form-header">Tell us about yourself</div>
         <div class="form-main-info">
           <div>
             <label for="form-username">Your name</label
-            ><input id="username" type="text" placeholder="Type your name..." />
+            ><input id="form-username" type="text" placeholder="Tell us your name" />
           </div>
           <div>
-            <label for="form-user-gender"><div class="custom-select"></div>Your gender</label>
-              <select id="form-user-gender" placeholder="Gender" name="gender">
-                <option value="" hidden>Select...</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Non-binary">Non-binary</option>
-              </select>
+            <label for="form-user-gender">
+              <div class="custom-select"> </div>
+              Your gender
+            </label>
+            <select id="form-user-gender"  name="gender">
+              <option value="" hidden>Chose your gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Non-binary">Non-binary</option>
+            </select>
             </div>
           </div>
         </div>
         <div class="form-additional-info hidden">
-          <div><label for="form-country">Your country</label><input id="form-country" type="text" placeholder="Type your country..."/></div>
-          <div><label for="form-city">Your City</label><input id="form-city" type="text" placeholder="Type your City..."/></div>
-          <div><label for="form-date">Your date of birth</label><input id="form-date" type="text" placeholder="Type your date..."/></div>
+          <div>
+            <label for="form-country">Your country</label>
+            <input id="form-country" type="text" placeholder="Where are you from?" />
+          </div>
+          <div>
+            <label for="form-city">Your City</label>
+            <input id="form-city" type="text" placeholder="Your native city" />
+          </div>
+          <div>
+            <label for="form-date">Your date of birth</label>
+            <input id="form-date" type="date" placeholder="dd.mm.yyyy" />
+          </div>
         </div>
-        <div class="document hidden">
-          <label class="custom-document-upload" for="document-upload"></label>
-          <input id="document-upload" accept="image/*" type="file" value=""/>
+        <div class="file-upload-block hidden">
+          <label class="custom-file-upload" for="file-upload"></label>
+          <input id="file-upload" accept="image/*" type="file" value=""/>
           <div class="custom-upload-text">
             Proof your identity with some documents
             <div>Add document</div>
@@ -103,7 +117,7 @@
           </div>
         </div>
         <div class="form-submit">
-          <button id="userInfoSubmit" type="submit">Send info</button>
+          <button id="userInfoSubmit" type="submit" disabled>Send info</button>
           <div id="completeBlockWrap" class="hidden">
             <div class="complete-icon-wrap ">
                 <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
