@@ -1,4 +1,5 @@
 import { FILE_SIZE_LIMIT } from './fileController.js'
+import { hideErrorLabel } from './validation.js'
 
 const usernameInput = document.getElementById('form-username')
 const genderSelector = document.getElementById('form-user-gender')
@@ -7,20 +8,24 @@ const fileInputBlock = document.querySelector('.file-upload-block')
 const fileInput = document.getElementById('file-upload')
 const formSubmitButton = document.getElementById('userInfoSubmit')
 
-const validateValue = (value) => value !== 'undefined' && value !== '' && value !== ' '
+export const isNotEmpty = (value) => value !== 'undefined' && value !== '' && value !== ' '
 
 usernameInput.addEventListener('input', (el) => {
-  if (validateValue(el.target.value) && genderSelector.value && additionalInfoBlock.classList.contains('hidden')) {
+  if (isNotEmpty(el.target.value) && genderSelector.value && additionalInfoBlock.classList.contains('hidden')) {
     additionalInfoBlock.classList.remove('hidden')
   }
 })
 
 genderSelector.addEventListener('change', (el) => {
+  if (el.target.classList.contains('error')) {
+    hideErrorLabel(el.target.id)
+  }
+
   if (!el.target.classList.contains('selected')) {
     el.target.classList.add('selected')
   }
 
-  if (validateValue(usernameInput.value) && el.target.value) {
+  if (isNotEmpty(usernameInput.value) && el.target.value) {
     additionalInfoBlock.classList.remove('hidden')
     additionalInfoBlock.querySelectorAll('input').forEach((el) => (el.tabIndex = '0'))
   }
@@ -28,13 +33,16 @@ genderSelector.addEventListener('change', (el) => {
 
 additionalInfoBlock.querySelectorAll('input').forEach((element, id, array) => {
   element.addEventListener('input', () => {
-    if ([...array].every((input) => validateValue(input.value)) && fileInputBlock.classList.contains('hidden')) {
+    if ([...array].every((input) => isNotEmpty(input.value)) && fileInputBlock.classList.contains('hidden')) {
       fileInputBlock.classList.remove('hidden')
     }
   })
 })
 
 fileInput.addEventListener('change', (event) => {
+  if (event.target.classList.contains('error')) {
+    hideErrorLabel(event.target.id)
+  }
   const { files } = event.target
   if ((files[0].type.includes('image') || files[0].size < FILE_SIZE_LIMIT * 1024 * 1024) && formSubmitButton.disabled) {
     formSubmitButton.disabled = false

@@ -60,11 +60,18 @@ body {
 }
 
 .error {
-  border-color: red; /* TODO: fix style */
+  border-color: red !important;
+  position: relative;
 }
 
-.highlight {
-  background-color: var(--purple-600); /* TODO: fix style */
+.label-error:after {
+  content: 'Invalid value!';
+  position: absolute;
+  z-index: 1;
+  bottom: -25px;
+  left: 0;
+  color: red;
+  font-size: 12px;
 }
 
 .header {
@@ -292,7 +299,7 @@ body {
 }
 
 #form-user-gender.selected {
-  color: var(--black-400)
+  color: var(--black-400);
 }
 
 .custom-select:after {
@@ -368,6 +375,7 @@ body {
   letter-spacing: 0.03em;
   color: #9993bd;
   pointer-events: none;
+  position: absolute;
 }
 
 .custom-upload-text > div {
@@ -384,6 +392,24 @@ body {
   background: var(--white);
   border: 1px solid var(--purple-600);
   border-radius: 12px;
+}
+
+.custom-file-upload.label-error {
+  border-color: red
+}
+
+.custom-file-upload.label-error:after {
+  content: 'Wrong file!';
+  position: relative;
+  bottom: -115%;
+  left: 45%;
+  z-index: 10;
+  color: red;
+  transform: translate(0%, 0%);
+}
+
+.highlight {
+  background-color: var(--purple-600); /* TODO: fix style */
 }
 
 .preview {
@@ -621,4 +647,3 @@ body {
 .active-dot {
   background-color: var(--white);
 }
-

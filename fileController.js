@@ -1,9 +1,14 @@
+import { hideErrorLabel, showErrorLabel } from './validation.js'
+
 export const FILE_SIZE_LIMIT = 5
 
 const customFileInput = document.querySelector('.custom-file-upload')
+const fileInputButton = document.getElementById('file-upload')
+const filePreview = document.getElementById('filePreview')
 
 const removeFile = () => {
-  document.getElementById('filePreview').classList.add('hidden')
+  filePreview.classList.add('hidden')
+  fileInputButton.value = ''
 }
 
 const previewFile = (file) => {
@@ -12,7 +17,7 @@ const previewFile = (file) => {
   reader.onloadend = function () {
     const img = document.getElementById('previewImg')
     img.src = reader.result
-    document.getElementById('filePreview').classList.remove('hidden')
+    filePreview.classList.remove('hidden')
   }
   const [name, type] = file.name.split('.')
   const imgName = document.getElementById('previewImgName')
@@ -29,7 +34,7 @@ const handleFile = (event) => {
 }
 
 const init = () => {
-  document.getElementById('file-upload').addEventListener('change', handleFile)
+  fileInputButton.addEventListener('change', handleFile)
   document.getElementById('trashCan').addEventListener('click', removeFile)
   ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
     customFileInput.addEventListener(eventName, (event) => {
@@ -47,11 +52,13 @@ const init = () => {
   })
 
   customFileInput?.addEventListener('drop', (data) => {
+    if (fileInputButton.classList.contains('error')) {
+      hideErrorLabel(fileInputButton.id)
+    }
     let [file] = data.dataTransfer.files
     customFileInput.classList.remove('highlight')
-    console.log('file', file)
     if (!file.type.includes('image') || file.size > FILE_SIZE_LIMIT * 1024 * 1024) {
-      customFileInput.classList.add('error')
+      showErrorLabel(fileInputButton.id)
     } else {
       previewFile(file)
     }
