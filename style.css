@@ -56,6 +56,7 @@ body {
 
 .hidden {
   opacity: 0;
+  pointer-events: none;
 }
 
 .error {
@@ -283,18 +284,15 @@ body {
   padding: 0 16px;
 }
 
-.form select {
+#form-user-gender {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-}
-
-.form select {
   color: var(--gray);
 }
 
-.form select option {
-  padding: 2px 0;
+#form-user-gender.selected {
+  color: var(--black-400)
 }
 
 .custom-select:after {
@@ -544,8 +542,6 @@ body {
   z-index: 5;
   position: absolute;
 }
-
-
 
 .left {
   left: 2%;

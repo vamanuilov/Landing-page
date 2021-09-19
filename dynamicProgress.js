@@ -16,8 +16,13 @@ usernameInput.addEventListener('input', (el) => {
 })
 
 genderSelector.addEventListener('change', (el) => {
+  if (!el.target.classList.contains('selected')) {
+    el.target.classList.add('selected')
+  }
+
   if (validateValue(usernameInput.value) && el.target.value) {
     additionalInfoBlock.classList.remove('hidden')
+    additionalInfoBlock.querySelectorAll('input').forEach((el) => (el.tabIndex = '0'))
   }
 })
 
