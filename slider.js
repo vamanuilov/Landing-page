@@ -38,7 +38,7 @@ const showSlide = () => {
   })
 })
 
-document.getElementById('right-slider-button').addEventListener('click', () => {
+document.getElementById('rightSliderButton').addEventListener('click', () => {
   slideIndex.plusIndex()
   if (slideIndex.getIndex() > slides.length) {
     slideIndex.setIndex(1)
@@ -46,7 +46,7 @@ document.getElementById('right-slider-button').addEventListener('click', () => {
   showSlide()
 })
 
-document.getElementById('left-slider-button').addEventListener('click', () => {
+document.getElementById('leftSliderButton').addEventListener('click', () => {
   slideIndex.minusIndex()
   if (slideIndex.getIndex() < 1) {
     slideIndex.setIndex(slides.length)

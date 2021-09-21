@@ -3,7 +3,7 @@ import { hideErrorLabel, showErrorLabel } from './validation.js'
 export const FILE_SIZE_LIMIT = 5
 
 const customFileInput = document.querySelector('.custom-file-upload')
-const fileInputButton = document.getElementById('file-upload')
+const fileInputButton = document.getElementById('fileUpload')
 const filePreview = document.getElementById('filePreview')
 
 const removeFile = () => {

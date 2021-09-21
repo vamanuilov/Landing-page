@@ -14,13 +14,14 @@
     <header class="header">
       <div><img src="assets/logo.png" alt="Logo" /></div>
       <div class="navbar">
+        <!-- TODO: add links -->
         <div>Jane Doe</div>
         <div>Tell us about yourself</div>
         <div>Slider</div>
       </div>
     </header>
     <section>
-      <div class="user-card">
+      <div id="userCard" class="user-card">
         <div class="user-avatar">
           <img src="assets/avatar.png" alt="avatar" />
         </div>
@@ -48,7 +49,7 @@
       </div>
     </section>
     <section>
-      <form class="form" id="user-form" action="/" method="get">
+      <form class="form" id="userForm" action="/" method="get">
           <div>
             <div class="form-small-square right-side"></div>
             <div class="form-middle-square right-side"></div>
@@ -60,15 +61,15 @@
         <div class="form-header">Tell us about yourself</div>
         <div class="form-main-info">
           <div>
-            <label for="form-username">Your name</label
-            ><input id="form-username" type="text" placeholder="Tell us your name" />
+            <label for="formUsername">Your name</label
+            ><input id="formUsername" type="text" placeholder="Tell us your name" />
           </div>
           <div>
-            <label for="form-user-gender">
+            <label for="formUserGender">
               <div class="custom-select"> </div>
               Your gender
             </label>
-            <select id="form-user-gender"  name="gender">
+            <select id="formUserGender"  name="gender">
               <option value="" hidden>Chose your gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -79,21 +80,21 @@
         </div>
         <div class="form-additional-info hidden">
           <div>
-            <label for="form-country">Your country</label>
-            <input tabindex="-1" id="form-country" type="text" placeholder="Where are you from?" />
+            <label for="formCountry">Your country</label>
+            <input tabindex="-1" id="formCountry" type="text" placeholder="Where are you from?" />
           </div>
           <div>
-            <label for="form-city">Your City</label>
-            <input tabindex="-1" id="form-city" type="text" placeholder="Your native city" />
+            <label for="formCity">Your City</label>
+            <input tabindex="-1" id="formCity" type="text" placeholder="Your native city" />
           </div>
           <div>
-            <label for="form-date">Your date of birth</label>
-            <input tabindex="-1" id="form-date" type="date" placeholder="dd.mm.yyyy" />
+            <label for="formDate">Your date of birth</label>
+            <input tabindex="-1" id="formDate" type="date" placeholder="dd.mm.yyyy" />
           </div>
         </div>
         <div class="file-upload-block hidden">
-          <label class="custom-file-upload" for="file-upload"></label>
-          <input id="file-upload" accept="image/*" type="file" value=""/>
+          <label class="custom-file-upload" for="fileUpload"></label>
+          <input id="fileUpload" accept="image/*" type="file" value=""/>
           <div class="custom-upload-text">
             Proof your identity with some documents
             <div>Add document</div>
@@ -138,10 +139,10 @@
             <div class="slider-image transit"><img src="assets/slider2.jpg" alt=""></div>
           </div>
           <div class="slider-control-buttons">
-            <label class="left" for="left-slider-button"></label>
-            <button id="left-slider-button"></button>
-            <label class="right" for="right-slider-button"></label>
-            <button id="right-slider-button"></button>
+            <label class="left" for="leftSliderButton"></label>
+            <button id="leftSliderButton"></button>
+            <label class="right" for="rightSliderButton"></label>
+            <button id="rightSliderButton"></button>
           </div>
           <div class="dots-block">
             <div class="active-dot"></div>

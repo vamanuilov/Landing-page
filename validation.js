@@ -14,13 +14,13 @@ export const hideErrorLabel = (elementId) => {
   document.querySelector(`label[for="${elementId}"]`).classList.remove('label-error')
 }
 
-document.getElementById('form-username').addEventListener('change', (inputElement) => {
+document.getElementById('formUsername').addEventListener('change', (inputElement) => {
   if (!nameRegex.test(inputElement.target.value)) {
     showErrorLabel(inputElement.target.id)
   }
 })
 
-document.getElementById('form-username').addEventListener('input', (inputElement) => {
+document.getElementById('formUsername').addEventListener('input', (inputElement) => {
   if (inputElement.target.classList.contains('error') && nameRegex.test(inputElement.target.value)) {
     hideErrorLabel(inputElement.target.id)
   }
@@ -43,7 +43,7 @@ document
     })
   })
 
-document.getElementById('form-date').addEventListener('blur', (inputElement) => {
+document.getElementById('formDate').addEventListener('blur', (inputElement) => {
   const inputDate = new Date(inputElement.target.value).toLocaleDateString('ru-RU')
 
   if (!dateRegex.test(inputDate)) {
@@ -51,7 +51,7 @@ document.getElementById('form-date').addEventListener('blur', (inputElement) => 
   }
 })
 
-document.getElementById('form-date').addEventListener('input', (inputElement) => {
+document.getElementById('formDate').addEventListener('input', (inputElement) => {
   const inputDate = new Date(inputElement.target.value).toLocaleDateString('ru-RU')
 
   if (inputElement.target.classList.contains('error') && dateRegex.test(inputDate)) {
@@ -65,7 +65,7 @@ document.getElementById('userInfoSubmit').addEventListener('click', (e) => {
   const completeBlock = document.getElementById('completeBlockWrap')
   const userFormSubmitBtn = document.getElementById('userInfoSubmit')
 
-  const isTextNotEmpty = [...document.getElementById('user-form').querySelectorAll('input[type=text]')].reduce(
+  const isTextNotEmpty = [...document.getElementById('userForm').querySelectorAll('input[type=text]')].reduce(
     (acc, element) => {
       const { value, id } = element
 
@@ -77,21 +77,21 @@ document.getElementById('userInfoSubmit').addEventListener('click', (e) => {
     true
   )
   // TODO: move dom appeals to top
-  const isDateNotEmpty = isNotEmpty(document.getElementById('form-date').value)
+  const isDateNotEmpty = isNotEmpty(document.getElementById('formDate').value)
 
   if (!isDateNotEmpty) {
-    showErrorLabel(document.getElementById('form-date').id)
+    showErrorLabel(document.getElementById('formDate').id)
   }
 
-  const isSelectNotEmpty = isNotEmpty(document.getElementById('form-user-gender').value)
+  const isSelectNotEmpty = isNotEmpty(document.getElementById('formUserGender').value)
 
   if (!isSelectNotEmpty) {
-    showErrorLabel(document.getElementById('form-user-gender').id)
+    showErrorLabel(document.getElementById('formUserGender').id)
   }
 
-  const isFileNotEmpty = isNotEmpty(document.getElementById('file-upload').value)
+  const isFileNotEmpty = isNotEmpty(document.getElementById('fileUpload').value)
   if (!isFileNotEmpty) {
-    showErrorLabel(document.getElementById('file-upload').id)
+    showErrorLabel(document.getElementById('fileUpload').id)
   }
 
   if (isFileNotEmpty && isSelectNotEmpty && isDateNotEmpty && isTextNotEmpty) {

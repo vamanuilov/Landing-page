@@ -84,11 +84,15 @@ body {
   height: 96px;
   padding-right: 10%;
   padding-left: 5%;
-  color: var(--purple-600);
 }
 
 .navbar {
   display: flex;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--purple-600);
 }
 
 .header img {
@@ -305,14 +309,14 @@ body {
   padding: 0 16px;
 }
 
-#form-user-gender {
+#formUserGender {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   color: var(--gray);
 }
 
-#form-user-gender.selected {
+#formUserGender.selected {
   color: var(--black-400);
 }
 
@@ -362,7 +366,7 @@ body {
   pointer-events: none;
 }
 
-#file-upload {
+#fileUpload {
   display: none;
 }
 
@@ -600,14 +604,14 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-#left-slider-button {
+#leftSliderButton {
   left: 0;
   padding: 0 3%;
   border-top-left-radius: 32px;
   border-bottom-left-radius: 32px;
 }
 
-#right-slider-button {
+#rightSliderButton {
   right: 0;
   padding: 0 3%;
   border-top-right-radius: 32px;
@@ -910,11 +914,11 @@ body {
     width: 17%;
   }
 
-  #left-slider-button {
+  #leftSliderButton {
     border-top-left-radius: 0;
   }
 
-  #right-slider-button {
+  #rightSliderButton {
     border-top-right-radius: 0;
   }
 

@@ -1,11 +1,11 @@
 import { FILE_SIZE_LIMIT } from './fileController.js'
 import { hideErrorLabel } from './validation.js'
 
-const usernameInput = document.getElementById('form-username')
-const genderSelector = document.getElementById('form-user-gender')
+const usernameInput = document.getElementById('formUsername')
+const genderSelector = document.getElementById('formUserGender')
 const additionalInfoBlock = document.querySelector('.form-additional-info')
 const fileInputBlock = document.querySelector('.file-upload-block')
-const fileInput = document.getElementById('file-upload')
+const fileInput = document.getElementById('fileUpload')
 const formSubmitButton = document.getElementById('userInfoSubmit')
 
 export const isNotEmpty = (value) => value !== 'undefined' && value !== '' && value !== ' '
