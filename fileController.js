@@ -1,14 +1,15 @@
 import { hideErrorLabel, showErrorLabel } from './validation.js'
+import { fileUpload, formSubmitButton } from './dynamicProgress.js'
 
 export const FILE_SIZE_LIMIT = 5
+export let file;
 
 const customFileInput = document.querySelector('.custom-file-upload')
-const fileInputButton = document.getElementById('fileUpload')
 const filePreview = document.getElementById('filePreview')
 
 const removeFile = () => {
   filePreview.classList.add('hidden')
-  fileInputButton.value = ''
+  fileUpload.value = ''
 }
 
 const previewFile = (file) => {
@@ -33,8 +34,8 @@ const handleFile = (event) => {
   previewFile(files[0])
 }
 
-const init = () => {
-  fileInputButton.addEventListener('change', handleFile)
+export const addCustomFileController = () => {
+  fileUpload.addEventListener('change', handleFile)
   document.getElementById('trashCan').addEventListener('click', removeFile)
   ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
     customFileInput.addEventListener(eventName, (event) => {
@@ -52,17 +53,16 @@ const init = () => {
   })
 
   customFileInput?.addEventListener('drop', (data) => {
-    if (fileInputButton.classList.contains('error')) {
-      hideErrorLabel(fileInputButton.id)
+    if (fileUpload.classList.contains('error')) {
+      hideErrorLabel(fileUpload.id)
     }
-    let [file] = data.dataTransfer.files
+    [file] = data.dataTransfer.files
     customFileInput.classList.remove('highlight')
     if (!file.type.includes('image') || file.size > FILE_SIZE_LIMIT * 1024 * 1024) {
-      showErrorLabel(fileInputButton.id)
+      showErrorLabel(fileUpload.id)
     } else {
       previewFile(file)
+      formSubmitButton.disabled = false
     }
   })
 }
-
-export default init

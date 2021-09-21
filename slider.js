@@ -31,25 +31,27 @@ const showSlide = () => {
   })
 }
 
-;[...dots].forEach((dot, index) => {
-  dot.addEventListener('click', () => {
-    slideIndex.setIndex(index + 1)
+export const addSlider = () => {
+  ;[...dots].forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      slideIndex.setIndex(index + 1)
+      showSlide()
+    })
+  })
+
+  document.getElementById('rightSliderButton').addEventListener('click', () => {
+    slideIndex.plusIndex()
+    if (slideIndex.getIndex() > slides.length) {
+      slideIndex.setIndex(1)
+    }
     showSlide()
   })
-})
 
-document.getElementById('rightSliderButton').addEventListener('click', () => {
-  slideIndex.plusIndex()
-  if (slideIndex.getIndex() > slides.length) {
-    slideIndex.setIndex(1)
-  }
-  showSlide()
-})
-
-document.getElementById('leftSliderButton').addEventListener('click', () => {
-  slideIndex.minusIndex()
-  if (slideIndex.getIndex() < 1) {
-    slideIndex.setIndex(slides.length)
-  }
-  showSlide()
-})
+  document.getElementById('leftSliderButton').addEventListener('click', () => {
+    slideIndex.minusIndex()
+    if (slideIndex.getIndex() < 1) {
+      slideIndex.setIndex(slides.length)
+    }
+    showSlide()
+  })
+}
