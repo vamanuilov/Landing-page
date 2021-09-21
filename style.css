@@ -219,6 +219,7 @@ body {
   flex-direction: column;
   min-height: 750px;
   height: fit-content;
+  height: -moz-fit-content;
   padding: 5% 0 4% 7%;
   position: relative;
   overflow-x: hidden;
@@ -803,6 +804,7 @@ body {
     justify-content: center;
     border-radius: 0;
     height: fit-content;
+    height: -moz-fit-content;
     padding: 24px 0;
     overflow-x: hidden;
   }
@@ -879,6 +881,15 @@ body {
   .form-additional-info {
     flex-direction: column;
     width: 100%;
+  }
+
+  .form-main-info > div,
+  .form-additional-info > div {
+    padding-right: 0;
+  }
+
+  .custom-select:after {
+    right: 8%;
   }
 
   .custom-file-upload {
