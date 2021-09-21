@@ -2,14 +2,16 @@ import { hideErrorLabel, showErrorLabel } from './validation.js'
 import { fileUpload, formSubmitButton } from './dynamicProgress.js'
 
 export const FILE_SIZE_LIMIT = 5
-export let file;
+export let file
 
 const customFileInput = document.querySelector('.custom-file-upload')
+const customUploadText = document.querySelector('.custom-upload-infoblock')
 const filePreview = document.getElementById('filePreview')
 
 const removeFile = () => {
   filePreview.classList.add('hidden')
   fileUpload.value = ''
+  file = undefined
 }
 
 const previewFile = (file) => {
@@ -34,6 +36,22 @@ const handleFile = (event) => {
   previewFile(files[0])
 }
 
+const addDragAndDropText = () => {
+  customFileInput.classList.add('highlight')
+  customUploadText.classList.add('highlight')
+  customUploadText.querySelectorAll('div').forEach((el) => {
+    el.classList.add('highlight')
+  })
+}
+
+const removeDragAndDropText = () => {
+  customFileInput.classList.remove('highlight')
+  customUploadText.classList.remove('highlight')
+  customUploadText.querySelectorAll('div').forEach((el) => {
+    el.classList.remove('highlight')
+  })
+}
+
 export const addCustomFileController = () => {
   fileUpload.addEventListener('change', handleFile)
   document.getElementById('trashCan').addEventListener('click', removeFile)
@@ -44,20 +62,16 @@ export const addCustomFileController = () => {
     })
   })
 
-  customFileInput?.addEventListener('dragenter', () => {
-    customFileInput.classList.add('highlight')
-  })
+  customFileInput?.addEventListener('dragenter', addDragAndDropText)
 
-  customFileInput?.addEventListener('dragleave', () => {
-    customFileInput.classList.remove('highlight')
-  })
+  customFileInput?.addEventListener('dragleave', removeDragAndDropText)
 
   customFileInput?.addEventListener('drop', (data) => {
     if (fileUpload.classList.contains('error')) {
       hideErrorLabel(fileUpload.id)
     }
-    [file] = data.dataTransfer.files
-    customFileInput.classList.remove('highlight')
+    ;[file] = data.dataTransfer.files
+    removeDragAndDropText()
     if (!file.type.includes('image') || file.size > FILE_SIZE_LIMIT * 1024 * 1024) {
       showErrorLabel(fileUpload.id)
     } else {
