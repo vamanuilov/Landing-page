@@ -33,7 +33,12 @@ const previewFile = (file) => {
 
 const handleFile = (event) => {
   const { files } = event.target
-  previewFile(files[0])
+  if (!files[0].type.includes('image') || files[0].size > FILE_SIZE_LIMIT * 1024 * 1024) {
+    showErrorLabel(fileUpload.id)
+  } else {
+    previewFile(files[0])
+    formSubmitButton.disabled = false
+  }
 }
 
 const addDragAndDropText = () => {
