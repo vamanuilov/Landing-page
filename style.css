@@ -518,6 +518,11 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+  position: relative;
+}
+
+.form-submit button:active {
+  top: 2px;
 }
 
 .form-submit button:disabled {
@@ -595,7 +600,7 @@ body {
 
 .no-transition label,
 .no-transition button{
-pointer-events: none;
+  pointer-events: none;
 }
 
 .slider-control-buttons {
@@ -702,6 +707,7 @@ pointer-events: none;
   height: 10px;
   border: 2px solid var(--white);
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .active-dot {
