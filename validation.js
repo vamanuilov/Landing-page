@@ -39,6 +39,11 @@ const checkTextInput = (value, elementId) => {
   return true
 }
 
+const isDateBeforeToday = (date) => {
+  const [day, month, year] = date.split('.')
+  return new Date(new Date(year, month - 1, day).toDateString()) < new Date(new Date().toDateString())
+}
+
 export const addValidation = () => {
   formUsername.addEventListener('input', (event) => {
     if (event.target.classList.contains('error') && nameRegex.test(event.target.value)) {
@@ -77,6 +82,11 @@ export const addValidation = () => {
 
     const isTextValid = [...textInputs].reduce((acc, element) => {
       const { value, id } = element
+
+      if (id === 'formDate' && !isDateBeforeToday(value)) {
+        showErrorLabel(id)
+        return false
+      }
 
       return acc && checkTextInput(value, id)
     }, true)
