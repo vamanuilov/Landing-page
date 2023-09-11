@@ -10,4 +10,4 @@ Landing page built using only CSS, HTML and Vanilla JS
 ## There are several ways to run page:
   1. Clone repository and open `index.html`
   2. Download repository as .zip and open `index.html`
-  3. Click the [link]( https://vamanuilov.github.io/landing-page/)
+  3. Click the [link]( https://vamanuilov.github.io/Landing-page/)
